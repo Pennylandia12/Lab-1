@@ -6,7 +6,7 @@ module fulladder (input  logic a, b, cin, output logic sum, cout);
 endmodule
 
 
-module RCA (input logic a, b, cin, output logic sum, cout);
+module RCA (input logic[4:0] a, b, cin, output logic[4:0] sum, cout);
 fulladder fa(a[0] ,b[0] ,cin[0] ,sum[0] , cout[0]);
 fulladder fa2(a[1], b[1], cout[0], sum[1], cout[1]);
 fulladder fa3(a[2], b[2], cout[1], sum[2], cout[2]);
