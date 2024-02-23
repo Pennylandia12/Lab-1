@@ -59,16 +59,17 @@
      end  
 endmodule */
 module tb();
-    logic        a;
-    logic 	b;
+    logic   [3:0] a;
+    logic 	[3:0] b;
     logic 	cin;
-    logic 	sum;
-    logic    cout;
+    logic 	[4:0] sum;
     logic        clk; 
+	logic [4:0] Sum_Correct;
 	
 
-	RCA dut (a, b, cin, sum, cout);
-	assign Sum_correct = a + b + cin;
+	RCA dut (a, b, cin, sum);
+	assign Sum_Correct = a + b + cin;
+	
 
 	// 2 ns clock
     initial
@@ -99,8 +100,8 @@ module tb();
 					end
 				@(negedge clk)
 					begin
-					$fdisplay(desc3, "%h %h || %h | %h | %b", a, b, sum, Sum_correct, (sum ==
-					Sum_correct));
+					$fdisplay(desc3, "%h %h || %h | %h | %b", a, b, sum, Sum_Correct, (sum ==
+					Sum_Correct));
 					end
 				end // @(negedge clk)
 		end
